@@ -34,9 +34,9 @@ gulp.task('styles', () => {
 });
 
 gulp.task('haml', function () {
-  gulp.src('./haml/**/*.haml')
+  gulp.src('./app/haml/**/*.haml')
     .pipe(haml())
-    .pipe(gulp.dest('./haml'));
+    .pipe(gulp.dest('./app'));
 });
 
 
@@ -122,10 +122,12 @@ gulp.task('serve', ['styles', 'scripts', 'fonts'], () => {
   gulp.watch([
     'app/*.html',
     'app/images/**/*',
-    '.tmp/fonts/**/*'
+    '.tmp/fonts/**/*',
+    'app/haml/*.haml'
   ]).on('change', reload);
 
   gulp.watch('app/styles/**/*.scss', ['styles']);
+  gulp.watch('app/haml/**/*.haml', ['haml']);
   gulp.watch('app/scripts/**/*.js', ['scripts']);
   gulp.watch('app/fonts/**/*', ['fonts']);
   gulp.watch('bower.json', ['wiredep', 'fonts']);
