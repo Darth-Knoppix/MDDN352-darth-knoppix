@@ -9,7 +9,14 @@ const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
 
 var haml = require('gulp-haml');
-var ghPages = require('gulp-gh-pages');
+var surge = require('gulp-surge')
+
+gulp.task('deploy', [], function () {
+  return surge({
+    project: './dist',         // Path to your static build directory
+    domain: 'darth-knoppix.surge.sh'  // Your domain or Surge subdomain
+  })
+})
 
 gulp.task('styles', () => {
   return gulp.src('app/styles/*.scss')
@@ -32,10 +39,6 @@ gulp.task('haml', function () {
     .pipe(gulp.dest('./haml'));
 });
 
-gulp.task('deploy', function() {
-  return gulp.src('./dist/**/*')
-    .pipe(ghPages());
-});
 
 gulp.task('scripts', () => {
   return gulp.src('app/scripts/**/*.js')
