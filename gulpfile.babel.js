@@ -1,4 +1,4 @@
-// generated on 2016-03-24 using generator-webapp 2.0.0
+// generated on 2016-03-29 using generator-webapp 2.0.0
 import gulp from 'gulp';
 import gulpLoadPlugins from 'gulp-load-plugins';
 import browserSync from 'browser-sync';
@@ -9,14 +9,13 @@ const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
 
 var haml = require('gulp-haml');
-var surge = require('gulp-surge')
 
-gulp.task('deploy', [], function () {
-  return surge({
-    project: './dist',         // Path to your static build directory
-    domain: 'darth-knoppix.surge.sh'  // Your domain or Surge subdomain
-  })
-})
+// Get and render all .haml files recursively 
+gulp.task('haml', function () {
+  return gulp.src('app/haml/**/*.haml')
+    .pipe(haml())
+    .pipe(gulp.dest('app/'));
+});
 
 gulp.task('styles', () => {
   return gulp.src('app/styles/*.scss')
@@ -32,13 +31,6 @@ gulp.task('styles', () => {
     .pipe(gulp.dest('.tmp/styles'))
     .pipe(reload({stream: true}));
 });
-
-gulp.task('haml', function () {
-  gulp.src('./app/haml/**/*.haml')
-    .pipe(haml())
-    .pipe(gulp.dest('./app'));
-});
-
 
 gulp.task('scripts', () => {
   return gulp.src('app/scripts/**/*.js')
@@ -120,14 +112,14 @@ gulp.task('serve', ['styles', 'scripts', 'fonts'], () => {
   });
 
   gulp.watch([
+    'app/haml/*.haml',
     'app/*.html',
     'app/images/**/*',
-    '.tmp/fonts/**/*',
-    'app/haml/*.haml'
+    '.tmp/fonts/**/*'
   ]).on('change', reload);
 
-  gulp.watch('app/styles/**/*.scss', ['styles']);
   gulp.watch('app/haml/**/*.haml', ['haml']);
+  gulp.watch('app/styles/**/*.scss', ['styles']);
   gulp.watch('app/scripts/**/*.js', ['scripts']);
   gulp.watch('app/fonts/**/*', ['fonts']);
   gulp.watch('bower.json', ['wiredep', 'fonts']);
@@ -172,12 +164,13 @@ gulp.task('wiredep', () => {
 
   gulp.src('app/*.html')
     .pipe(wiredep({
+      exclude: ['bootstrap-sass'],
       ignorePath: /^(\.\.\/)*\.\./
     }))
     .pipe(gulp.dest('app'));
 });
 
-gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
+gulp.task('build', ['haml','lint', 'html', 'images', 'fonts', 'extras'], () => {
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
