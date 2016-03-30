@@ -1,6 +1,9 @@
 !!! 5
 %html
   %head
+    %meta(charset="utf-8")
+    %meta(http-equiv="X-UA-Compatible" content="IE=edge")
+    %meta(name="viewport" content="width=device-width, initial-scale=1")
     /= build:css styles/vendor.css
     /= bower:css
     /= endbower
@@ -16,8 +19,8 @@
 
     %title Seth Corker
   %body
-    .navbar.navbar-default
-      .container-fluid
+    %nav.navbar.navbar-default.navbar-static-top
+      .container
         .navbar-header
           %button.navbar-toggle.collapsed(type="button" data-toggle="collapse" data-target="#tt-menu" aria-expanded="false")
             %span.sr-only Toggle navigation
@@ -34,6 +37,44 @@
             %li
               %a(href="#") Link
     .jumbotron
+      .image-slide#government-ipad
+    .jumbotron
+      .image-slide#government-iphone
+    .jumbotron
+      .twentytwenty-wrapper
+        .twentytwenty-container#oriental-bay
+          %img(src="images/oriental-bay/comparison_then_hd.jpg")
+          %img(src="images/oriental-bay/comparison_now_hd.jpg")
+    .jumbotron
+      .image-slide#oriental-ipad
+        .overlay-content
+          .container
+            .col-md-6.col-md-offset-6
+              .panel.panel-default
+                .panel-body
+                  %h2 test
+                  %p Hey, you heard about the good news? Y'all sleeping on me huh, had a good snooze...
+    .jumbotron
+      .image-slide#ship-ipad
+        .overlay-content
+          .container
+            .col-md-6.col-md-offset-6
+              .panel.panel-default
+                .panel-body
+                  %h2 test
+                  %p Hey, you heard about the good news? Y'all sleeping on me huh, had a good snooze...
+    .jumbotron
+      .image-slide#statue-iphone
+        .overlay-content
+          .container
+            .col-md-6.col-md-offset-6
+              .panel.panel-default
+                .panel-body
+                  %h2 test
+                  %p Hey, you heard about the good news? Y'all sleeping on me huh, had a good snooze...
+        
+
+    .container
       %h1 Okat
       %h2 Hello
       %h4 Is it you
@@ -43,6 +84,19 @@
     %script(src="/bower_components/jquery/dist/jquery.js")
     /= endbower
     /= endbuild
+
+    /= build:js scripts/jquery.event.move.js
+    %script(src="scripts/jquery.event.move.js")
+    /= endbuild
+
+    /= build:js scripts/jquery.twentytwenty.js
+    %script(src="scripts/jquery.twentytwenty.js")
+    /= endbuild
+
+    :javascript
+      $(window).load(function() {
+        $("#oriental-bay").twentytwenty();
+      });
     
     /= build:js scripts/plugins.js
     %script(src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js")

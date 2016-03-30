@@ -1,10 +1,13 @@
 $icon-font-path: '../fonts/';
+@import url(https://fonts.googleapis.com/css?family=Roboto:900,500);
 
 @import "variables";
 
 // bower:scss
 @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 // endbower
+
+@import "twentytwenty";
 
 .browserupgrade {
   margin: 0.2em 0;
@@ -15,7 +18,6 @@ $icon-font-path: '../fonts/';
 
 /* Space out content a bit */
 body {
-  padding-top: 20px;
   padding-bottom: 20px;
 }
 
@@ -69,6 +71,38 @@ body {
   }
 }
 
+.overlay-content{
+  width:100%;
+  position:absolute;
+  display:flex;
+  height:100%;
+  .container{
+    display:flex;
+    align-items: center;
+    height:100%;
+  }
+}
+.image-slide{
+  height: 100vh;
+}
+#government-ipad{
+  background-image: url("/images/government-buildings/ipad_hd.jpg");
+}
+
+#government-iphone{
+  background-image: url("/images/government-buildings/iphone_hd.jpg");
+}
+
+#oriental-ipad{
+  background-image: url("/images/oriental-bay/ipad_hd.jpg");
+}
+#ship-ipad{
+  background-image: url("/images/wwii-ship/ipad_hd.jpg");
+}
+#statue-iphone{
+  background-image: url("/images/wwi-statue/iphone_hd.jpg");
+}
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {
@@ -93,4 +127,3 @@ body {
     border-bottom: 0;
   }
 }
-
