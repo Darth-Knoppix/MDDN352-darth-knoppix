@@ -80,27 +80,91 @@ body {
     display:flex;
     align-items: center;
     height:100%;
+    @media (max-width: $screen-xs-max){
+      align-items: flex-end;
+    }
   }
 }
 .image-slide{
   height: 100vh;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.fullscreen-bg-video {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    right: 0;
+    z-index:-1;
+}
+
+#hero-intro{
+  color:#ececec;
+  @media (max-width: $screen-xs-max){
+    align-items: center;
+  }
 }
 #government-ipad{
-  background-image: url("/images/government-buildings/ipad_hd.jpg");
+  @media (max-width: $screen-xs-max){
+    background-image: url("/images/government-buildings/ipad_hd_portrait.jpg");
+  }
+  @media (min-width: $screen-sm-min){
+    background-image: url("/images/government-buildings/ipad_wxga.jpg");
+  }
+  @media (min-width: $screen-md-min){
+    background-image: url("/images/government-buildings/ipad_hd.jpg");
+  }
 }
 
 #government-iphone{
-  background-image: url("/images/government-buildings/iphone_hd.jpg");
+  @media (max-width: $screen-xs-max){
+    background-image: url("/images/government-buildings/iphone_hd_portrait.jpg");
+  }
+  @media (min-width: $screen-sm-min){
+    background-image: url("/images/government-buildings/iphone_wxga.jpg");
+  }
+  @media (min-width: $screen-md-min){
+    background-image: url("/images/government-buildings/iphone_hd.jpg");
+  }
 }
 
 #oriental-ipad{
-  background-image: url("/images/oriental-bay/ipad_hd.jpg");
+  @media (max-width: $screen-xs-max){
+    background-image: url("/images/oriental-bay/ipad_hd_portrait.jpg");
+  }
+  @media (min-width: $screen-sm-min){
+    background-image: url("/images/oriental-bay/ipad_wxga.jpg");
+  }
+  @media (min-width: $screen-md-min){
+    background-image: url("/images/oriental-bay/ipad_hd.jpg");
+  }
 }
 #ship-ipad{
-  background-image: url("/images/wwii-ship/ipad_hd.jpg");
+  @media (max-width: $screen-xs-max){
+    background-image: url("/images/wwii-ship/ipad_hd_portrait.jpg");
+  }
+  @media (min-width: $screen-sm-min){
+    background-image: url("/images/wwii-ship/ipad_wxga.jpg");
+  }
+  @media (min-width: $screen-md-min){
+    background-image: url("/images/wwii-ship/ipad_hd.jpg");
+  }
 }
 #statue-iphone{
-  background-image: url("/images/wwi-statue/iphone_hd.jpg");
+  @media (max-width: $screen-xs-max){
+    background-image: url("/images/wwi-statue/iphone_hd_portrait.jpg");
+  }
+  @media (min-width: $screen-sm-min){
+    background-image: url("/images/wwi-statue/iphone_wxga.jpg");
+  }
+  @media (min-width: $screen-md-min){
+    background-image: url("/images/wwi-statue/iphone_hd.jpg");
+  }
+}
+
+.panel h2{
+  margin-top:0;
 }
 
 /* Responsive: Portrait tablets and up */
