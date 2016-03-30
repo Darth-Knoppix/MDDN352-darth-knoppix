@@ -9,16 +9,14 @@ $icon-font-path: '../fonts/';
 
 @import "twentytwenty";
 
+body{
+  padding-top: 50px;
+}
 .browserupgrade {
   margin: 0.2em 0;
   background: #ccc;
   color: #000;
   padding: 0.2em 0;
-}
-
-/* Space out content a bit */
-body {
-  padding-bottom: 20px;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -97,6 +95,21 @@ body {
     width: 100%;
     right: 0;
     z-index:-1;
+    @media (max-width: $screen-xs-max){
+      height:105%;
+      width:auto;
+      margin-left:-50%;
+    }
+    @media (min-width: $screen-sm-min){
+      height:105%;
+      width:auto;
+      margin-left:-50%;
+    }
+    @media (min-width: $screen-md-min){
+      height:105%;
+      width:auto;
+      margin-left:0;
+    }
 }
 
 #hero-intro{

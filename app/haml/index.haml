@@ -1,66 +1,67 @@
-!!! 5
+!!!
 %html
   %head
-    %meta(charset="utf-8")
-    %meta(http-equiv="X-UA-Compatible" content="IE=edge")
-    %meta(name="viewport" content="width=device-width, initial-scale=1")
-    /= build:css styles/vendor.css
-    /= bower:css
-    /= endbower
-    /= endbuild
-
-    /= build:css styles/main.css
-    %link(rel="stylesheet" href="styles/main.css")
-    /= endbuild
-
-    /= build:js scripts/vendor/modernizr.js
+    %meta(charset="utf-8")/
+    %meta(content="IE=edge" http-equiv="X-UA-Compatible")/
+    %meta(content="width=device-width, initial-scale=1" name="viewport")/
+    / build:css styles/vendor.css
+    / bower:css
+    / endbower
+    / endbuild
+    / build:css styles/main.css
+    %link(href="styles/main.css" rel="stylesheet")/
+    / endbuild
+    / build:js scripts/vendor/modernizr.js
     %script(src="/bower_components/modernizr/modernizr.js")
-    /= endbuild
-
+    / endbuild
     %title Seth Corker
   %body
-    %nav.navbar.navbar-default.navbar-static-top
+    %nav.navbar.navbar-default.navbar-fixed-top
       .container
         .navbar-header
-          %button.navbar-toggle.collapsed(type="button" data-toggle="collapse" data-target="#tt-menu" aria-expanded="false")
+          %button.navbar-toggle.collapsed(aria-expanded="false" data-target="#tt-menu" data-toggle="collapse" type="button")
             %span.sr-only Toggle navigation
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.navbar-brand(href="#") PastPort
-        .collapse.navbar-collapse#tt-menu
-          %ul.nav.navbar-nav
-            %li.active
-              %a(href="#")
-                Link
-                  %span.sr-only(current)
+          %a.navbar-brand(href="#hero-intro") PastPort
+        #tt-menu.collapse.navbar-collapse
+          %ul.nav.navbar-nav.navbar-right
             %li
-              %a(href="#") Link
+              %a(href="#government-ipad") Why
+            %li
+              %a(href="#oriental-bay") Comparison
+            %li
+              %a(href="#oriental-ipad") How
+            %li
+              %a(href="#ship-ipad") Where
+            %li
+              %a(href="#statue-iphone") Who
     .jumbotron
-        .image-slide
-          %video.fullscreen-bg-video{loop: true, muted: true, autoplay: true, poster="images/video-thumb/hd.jpg"}
-            %source(src="ui.mp4" type="video/mp4")
-          .overlay-content
-            .container#hero-intro
-              .container-fluid
-                %h1 PastPort
-                %h2 Your window to the past
+      .image-slide
+        %video.fullscreen-bg-video(autoplay="autoplay" loop="loop" muted="muted")
+          %source(src="ui.mp4" type="video/mp4")
+        .overlay-content
+          #hero-intro.container
+            .container-fluid
+              %h1 PastPort
+              %h2 Your window to the past
     .jumbotron
-      .image-slide#government-ipad
+      #government-ipad.image-slide
         .overlay-content
           .container
             .col-md-6.col-md-offset-6
               .panel.panel-default
                 .panel-body
                   %h2 Why use PastPort?
-                  %p An interactive and immersive experience which takes you into the past so you can glimpse at what life was like. 
+                  %p An interactive and immersive experience which takes you into the past so you can glimpse at what life was like.
     .jumbotron
-      .twentytwenty-wrapper
-        .twentytwenty-container#oriental-bay
-          %img(src="images/oriental-bay/comparison_then_hd.jpg")
-          %img(src="images/oriental-bay/comparison_now_hd.jpg")
+      .twentytwenty-wrapper.hidden-xs.hidden-sm
+        #oriental-bay.twentytwenty-container
+          %img(src="images/oriental-bay/comparison_then_hd.jpg")/
+          %img(src="images/oriental-bay/comparison_now_hd.jpg")/
     .jumbotron
-      .image-slide#oriental-ipad
+      #oriental-ipad.image-slide
         .overlay-content
           .container
             .col-md-6.col-md-offset-6
@@ -69,7 +70,7 @@
                   %h2 How does PastPort work?
                   %p PastPort will show you content based on your where you are and what you're looking at.
     .jumbotron
-      .image-slide#ship-ipad
+      #ship-ipad.image-slide
         .overlay-content
           .container
             .col-md-6.col-md-offset-6
@@ -78,7 +79,7 @@
                   %h2 Where can I use it?
                   %p Designated points around the city will have historical content you can experience. The app will notice you are in a location of with photos, video or audio available and notify you.
     .jumbotron
-      .image-slide#statue-iphone
+      #statue-iphone.image-slide
         .overlay-content
           .container
             .col-md-6.col-md-offset-6
@@ -86,35 +87,25 @@
                 .panel-body
                   %h2 Who is it for?
                   %p PastPort is for everyone, whether you have an interest in history or just want to see what Wellington looked like last centuary; PastPort offers a unique view on the world around you.
-        
-    /= build:js scripts/vendor.js
-    /= bower:js
+    / build:js scripts/vendor.js
+    / bower:js
     %script(src="/bower_components/jquery/dist/jquery.js")
-    /= endbower
-    /= endbuild
-
-    /= build:js scripts/jquery.event.move.js
+    / endbower
+    / endbuild
+    / build:js scripts/jquery.event.move.js
     %script(src="scripts/jquery.event.move.js")
-    /= endbuild
-
-    /= build:js scripts/jquery.twentytwenty.js
+    / endbuild
+    / build:js scripts/jquery.twentytwenty.js
     %script(src="scripts/jquery.twentytwenty.js")
-    /= endbuild
-
-    :javascript
-      $(window).load(function() {
-        $("#oriental-bay").twentytwenty();
-      });
-    
-    /= build:js scripts/plugins.js
-    %script(src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/button.js")
+    / endbuild
+    / build:js scripts/scrollreveal.js
     %script(src="/bower_components/scrollreveal/dist/scrollreveal.js")
-    /= endbuild
-
-    :javascript
-      window.sr = ScrollReveal();
-      sr.reveal('.panel', {delay : 200});
-    
-    /= build:js scripts/main.js
+    / endbuild
+    / build:js scripts/plugins.js
+    %script(src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/button.js")
+    %script(src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js")
+    %script(src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js")
+    / = endbuild
+    / build:js scripts/main.js
     %script(src="scripts/main.js")
-    /= endbuild
+    / endbuild
