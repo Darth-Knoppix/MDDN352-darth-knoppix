@@ -110,6 +110,11 @@ body{
       width:auto;
       margin-left:0;
     }
+    @media (min-width: $screen-lg-min){
+      height:auto;
+      width:100%;
+      margin-left:0;
+    }
 }
 
 #hero-intro{
