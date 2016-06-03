@@ -8,9 +8,7 @@ import {stream as wiredep} from 'wiredep';
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
 
-var haml = require('gulp-haml');
-
-// Get and render all .haml files recursively 
+// Get and render all .haml files recursively
 gulp.task('haml', function () {
   return gulp.src('app/haml/**/*.haml')
     .pipe(haml())
