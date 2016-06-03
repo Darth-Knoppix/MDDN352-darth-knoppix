@@ -8,15 +8,6 @@ import {stream as wiredep} from 'wiredep';
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
 
-var haml = require('gulp-haml');
-
-// Get and render all .haml files recursively 
-gulp.task('haml', function () {
-  return gulp.src('app/haml/**/*.haml')
-    .pipe(haml())
-    .pipe(gulp.dest('app/'));
-});
-
 gulp.task('styles', () => {
   return gulp.src('app/styles/*.scss')
     .pipe($.plumber())
@@ -112,13 +103,11 @@ gulp.task('serve', ['styles', 'scripts', 'fonts'], () => {
   });
 
   gulp.watch([
-    'app/haml/*.haml',
     'app/*.html',
     'app/images/**/*',
     '.tmp/fonts/**/*'
   ]).on('change', reload);
 
-  gulp.watch('app/haml/**/*.haml', ['haml']);
   gulp.watch('app/styles/**/*.scss', ['styles']);
   gulp.watch('app/scripts/**/*.js', ['scripts']);
   gulp.watch('app/fonts/**/*', ['fonts']);
